@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
-      redirect_to new_user_path
+      redirect_to new_user_path, alert: "User created"
     else
-      render :new
+      render :new, alert: "Failed to create user"
     end
   end
 
