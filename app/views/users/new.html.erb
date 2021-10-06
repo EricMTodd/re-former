@@ -1,6 +1,6 @@
 <h1>Hello from users#new!</h1>
 
-<form action="/users" method="post" accept-charset="UTF-8">
+<!-- <form action="/users" method="post" accept-charset="UTF-8">
   <label for="username"><b>Username: </b></label>
   <input type="text" placeholder="Enter Username" name="user[username]" id="username" required>
   <br>
@@ -12,4 +12,17 @@
   <br>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="submit" value="Submit">
-</form>
+</form> -->
+
+<%= form_with model: @user do |form| %>
+  <b><%= form.label :username, "Username: " %></b>
+  <%= form.text_field :username, placeholder: "Enter Username" %>
+  <br>
+  <b><%= form.label :email, "Email :" %></b>
+  <%= form.text_field :email, placeholder: "Enter Email" %>
+  <br>
+  <b><%= form.label :password, "Password: " %></b>
+  <%= form.password_field :password, placeholder: "Enter Password" %>
+  <br>
+  <%= form.submit "Submit" %>
+<% end %>
